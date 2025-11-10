@@ -1,0 +1,182 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x4C0942DD72A14854",
+      "device": "xc7a35tcpg236-2L",
+      "gen_directory": "../../../../matrix_mult11.3.gen/sources_1/bd/mm_2_accum",
+      "name": "mm_2_accum",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2023.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "c_accum_0": "",
+      "mult_gen_0": "",
+      "clk_wiz_0": ""
+    },
+    "ports": {
+      "A": {
+        "type": "data",
+        "direction": "I",
+        "left": "17",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "B": {
+        "type": "data",
+        "direction": "I",
+        "left": "17",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "BYPASS": {
+        "type": "data",
+        "direction": "I",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": "undef",
+            "value_src": "default"
+          }
+        }
+      },
+      "Q": {
+        "type": "data",
+        "direction": "O",
+        "left": "35",
+        "right": "0",
+        "parameters": {
+          "LAYERED_METADATA": {
+            "value": [
+              "xilinx.com:interface:datatypes:1.0 {",
+              "DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum",
+              "{} maximum {}} value 36} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format",
+              "bool minimum {} maximum {}} value TRUE}}}} DATA_WIDTH 36",
+              "}"
+            ],
+            "value_src": "ip_prop"
+          }
+        }
+      },
+      "clk_100MHz": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "CLK_DOMAIN": {
+            "value": "mm_2_accum_clk_100MHz",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "FREQ_TOLERANCE_HZ": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.0",
+            "value_src": "default"
+          }
+        }
+      },
+      "reset_rtl_0": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_HIGH"
+          }
+        }
+      }
+    },
+    "components": {
+      "c_accum_0": {
+        "vlnv": "xilinx.com:ip:c_accum:12.0",
+        "xci_name": "mm_2_accum_c_accum_0_0",
+        "xci_path": "ip\\mm_2_accum_c_accum_0_0\\mm_2_accum_c_accum_0_0.xci",
+        "inst_hier_path": "c_accum_0"
+      },
+      "mult_gen_0": {
+        "vlnv": "xilinx.com:ip:mult_gen:12.0",
+        "xci_name": "mm_2_accum_mult_gen_0_0",
+        "xci_path": "ip\\mm_2_accum_mult_gen_0_0\\mm_2_accum_mult_gen_0_0.xci",
+        "inst_hier_path": "mult_gen_0"
+      },
+      "clk_wiz_0": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "mm_2_accum_clk_wiz_0_0",
+        "xci_path": "ip\\mm_2_accum_clk_wiz_0_0\\mm_2_accum_clk_wiz_0_0.xci",
+        "inst_hier_path": "clk_wiz_0"
+      }
+    },
+    "nets": {
+      "A_1": {
+        "ports": [
+          "A",
+          "mult_gen_0/A"
+        ]
+      },
+      "BYPASS_1": {
+        "ports": [
+          "BYPASS",
+          "c_accum_0/BYPASS"
+        ]
+      },
+      "B_1": {
+        "ports": [
+          "B",
+          "mult_gen_0/B"
+        ]
+      },
+      "c_accum_0_Q": {
+        "ports": [
+          "c_accum_0/Q",
+          "Q"
+        ]
+      },
+      "clk_100MHz_1": {
+        "ports": [
+          "clk_100MHz",
+          "clk_wiz_0/clk_in1"
+        ]
+      },
+      "mult_gen_0_P": {
+        "ports": [
+          "mult_gen_0/P",
+          "c_accum_0/B"
+        ]
+      },
+      "reset_rtl_0_1": {
+        "ports": [
+          "reset_rtl_0",
+          "clk_wiz_0/reset"
+        ]
+      },
+      "sim_clk_gen_0_clk": {
+        "ports": [
+          "clk_wiz_0/clk_out1",
+          "mult_gen_0/CLK",
+          "c_accum_0/CLK"
+        ]
+      }
+    }
+  }
+}
